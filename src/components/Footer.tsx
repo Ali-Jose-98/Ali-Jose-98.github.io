@@ -35,7 +35,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
           <div>
             <h3 className="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">Support</h3>
             <ul className="space-y-3">
-              <FooterLink href="#">Help Center</FooterLink>
+              <FooterLink href="#">Help Centers</FooterLink>
               <FooterLink href="#">Contact Us</FooterLink>
               <FooterLink href="#">Privacy Policy</FooterLink>
               <FooterLink href="#">Terms of Service</FooterLink>
