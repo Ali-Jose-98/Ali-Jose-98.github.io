@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Watch & Learn</title>
+    <title>Movies - Watch & Learn</title>
 
     <script>
         tailwind.config = {
@@ -18,6 +18,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script>
+        // Set dark mode based on local storage or system preference
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark')
         } else {
@@ -26,18 +27,6 @@
     </script>
 
     <style>
-        /*
-        VS Code Linter Note for -webkit-line-clamp & -webkit-box-orient:
-        These are WebKit-specific properties for line clamping.
-        To suppress VS Code warnings:
-        1. Open User Settings (JSON) (Ctrl+Shift+P -> "Preferences: Open User Settings (JSON)")
-        2. Add or ensure these lines are present:
-           "css.lint.vendorPrefix": "ignore",
-           "css.lint.unknownProperties": "ignore" // Use with caution.
-        3. Save and restart VS Code or Reload Window.
-        If using Stylelint, configure it separately.
-        */
-
         /* Standard CSS for line-clamp for better compatibility */
         .line-clamp-1 {
             overflow: hidden;
@@ -51,100 +40,56 @@
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 2;
         }
-        /* Add more .line-clamp-N if needed */
 
-        /* Ensure sticky header works well (often for fixed headers that might overlap content) */
+        /* Ensure sticky header works well */
         body {
             padding-top: 0;
         }
-
-        /*
-            Removed custom .dark .dark\:bg-opacity-95 and .bg-opacity-95 rules.
-            Tailwind's `dark:bg-opacity-95` and `bg-opacity-95` utilities should
-            now work correctly out-of-the-box thanks to the `darkMode: 'class'` configuration.
-        */
     </style>
 
     <script>
-        // Video Data (from video.ts) - kept as is
+        // Movie Data (updated for "Movies" page)
         const videoData = [
             {
                 id: '1',
-                title: 'Section#1',
-                description: 'The Rope, Alfred Hitchcock (1948)',
-                url: 'https://drive.google.com/file/d/1S1HJZKYLQ8pvMoHzl3UrhYzT5SFjS-hv/view?usp=sharing',
-                thumbnail: '/site_files/thm_S1.JPG',
+                title: 'The Rope (1948)',
+                description: 'Two men try to convince themselves they have committed the perfect murder by hosting a dinner party after strangling a former classmate to death.',
+                url: 'https://drive.google.com/file/d/1S1HJZKYLQ8pvMoHzl3UrhYzT5SFjS-hv/view',
+                thumbnail: '/site_files/Rope_Poster.jpg',
+                category: 'Advanced',
                 Level: 'Advanced',
-                category: 'The Rope (1948)',
-                duration: '13:34',
+                duration: '1:20:00',
                 featured: true
-            },
+            } ,
             {
                 id: '2',
-                title: 'Section#2',
-                description: 'The Rope (1948)',
-                url: 'https://drive.google.com/file/d/1l9BAUYI36G1GW6YovAb32OOSiVkuHPP2/view?usp=sharing',
-                thumbnail: '/site_files/thm_S2.JPG',
+                title: 'The King&#39;s Speech (2010)',
+                description: 'The story of King George VI, his unexpected ascension to the throne of the British Empire in 1936, and the speech therapist who helped the unsure monarch overcome his stammer.',
+                url: 'https://drive.google.com/file/d/1S1HJZKYLQ8pvMoHzl3UrhYzT5SFjS-hv/view',
+                thumbnail: '/site_files/King_Poster1.jpg',
+                category: 'Advanced',
                 Level: 'Advanced',
-                category: 'The Rope (1948)',
-                duration: '06:07',
-            },
+                duration: '2:10:00'
+                
+            }, 
             {
                 id: '3',
-                title: 'Section#3',
-                description: 'The Rope (1948)',
-                url: 'https://drive.google.com/file/d/1dOJtZvqhSt8el9GfrG0x5VI9Ou_2W9mk/view?usp=sharing',
-                thumbnail: '/site_files/thm_S3.JPG',
-                Level: 'Advanced',
-                category: 'The Rope (1948)',
-                duration: '08:51'
-            },
-            {
-                id: '4',
-                title: 'Section#4',
-                description: 'The Rope (1948)',
-                url: 'https://drive.google.com/file/d/1Jyoi1CsQS7vzbRKCxFXFkD4g_BcyRhIg/view?usp=sharing',
-                thumbnail: '/site_files/thm_S4.JPG',
-                category: 'The Rope (1948)',
-                Level: 'Advanced',
-                duration: '10:26'
-            },
-            {
-                id: '5',
-                title: 'Section#5',
-                description: 'The Rope (1948)',
-                url: 'https://drive.google.com/file/d/1AUlTsbHO0JbGmaE3v_dHjMlvCMd-HVhg/view?usp=sharing',
-                thumbnail: '/site_files/thm_S5.JPG',
-                category: 'The Rope (1948)',
-                Level: 'Advanced',
-                duration: '07:52'
-            },
-            {
-                id: '6',
-                title: 'Section#6',
-                description: 'The Rope (1948)',
-                url: 'https://drive.google.com/file/d/1zfQDR5pWUeMKEpZL7_aUaGtTTFDICa4R/view?usp=sharing',
-                thumbnail: '/site_files/thm_S6.JPG',
-                category: 'The Rope (1948)',
-                Level: 'Advanced',
-                duration: '10:03'
-            },
-            {
-                id: '7',
-                title: 'Section#7',
-                description: 'The Rope (1948)',
-                url: 'https://drive.google.com/file/d/11n574zODck9mr-92kQvpXmhMgpDmFX2B/view?usp=sharing',
-                thumbnail: '/site_files/thm_S7.JPG',
-                category: 'The Rope (1948)',
-                Level: 'Advanced',
-                duration: '23:55'
-            },
+                title: 'The Truman Show (1998)',
+                description: 'The story of King George VI, his unexpected ascension to the throne of the British Empire in 1936, and the speech therapist who helped the unsure monarch overcome his stammer.',
+                url: 'https://drive.google.com/file/d/1S1HJZKYLQ8pvMoHzl3UrhYzT5SFjS-hv/view',
+                thumbnail: '/site_files/Truman_Poster.jpg',
+                category: 'Intermediate',
+                Level: 'Intermediate',
+                duration: '1:43:00'
+                
+            }
+            
         ];
     </script>
 </head>
 <body class="bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
     <div id="app-container" class="min-h-screen flex flex-col">
-        </div>
+    </div>
 
     <script>
         // --- Global State ---
@@ -183,7 +128,9 @@
             if (!searchQuery.trim()) return videosToFilter;
             return videosToFilter.filter(video =>
                 video.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                video.description.toLowerCase().includes(searchQuery.toLowerCase())
+                video.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                video.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                video.Level.toLowerCase().includes(searchQuery.toLowerCase())
             );
         }
 
@@ -220,8 +167,8 @@
                             <nav id="main-nav"
                                 class="hidden absolute top-full left-0 right-0 bg-white dark:bg-gray-900 shadow-lg p-4 space-y-2 flex-col z-20
                                        md:flex md:relative md:top-auto md:left-auto md:right-auto md:bg-transparent dark:md:bg-transparent md:shadow-none md:p-0 md:space-y-0 md:flex-row md:space-x-8">
-                                ${navLink("#", "Home", true)}
-                                ${navLink("./Movies.htm", "Movies")}
+                                ${navLink("/index.html", "Home")}
+                                ${navLink("#", "Movies", true)}
                                 ${navLink("#", "Playlists")}
                                 ${navLink("#", "About")}
                             </nav>
@@ -236,47 +183,52 @@
 
         function renderFeaturedVideo(video) {
             if (!video) return '';
+            // For the Movies page, display the featured video within the main content area,
+            // below the search bar, not as a full-bleed hero.
             return `
-                <div class="mb-16 rounded-xl overflow-hidden relative group">
-                    <div
-                        class="h-[400px] bg-cover bg-center relative"
-                        style="background-image: url('${video.thumbnail}')"
-                    >
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+                <section class="mb-12">
+                    <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Featured Movie</h2>
+                    <div class="rounded-xl overflow-hidden shadow-lg bg-white dark:bg-gray-800 relative group">
+                        <div
+                            class="h-72 sm:h-96 bg-cover bg-center relative"
+                            style="background-image: url('${video.thumbnail}')"
+                        >
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"></div>
 
-                        <div class="absolute bottom-0 left-0 right-0 p-8">
-                            <span class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-indigo-600 text-white mb-4">
-                                Featured
-                            </span>
+                            <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                                <span class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-indigo-600 text-white mb-3">
+                                    Featured
+                                </span>
 
-                            <h2 class="text-3xl font-bold text-white mb-3">${video.title}</h2>
-                            <p class="text-gray-200 mb-6 max-w-2xl">${video.description}</p>
+                                <h3 class="text-2xl sm:text-3xl font-bold text-white mb-2">${video.title}</h3>
+                                <p class="text-gray-200 mb-4 max-w-2xl text-sm sm:text-base line-clamp-2">${video.description}</p>
 
-                            <div class="flex flex-wrap gap-4">
-                                <a
-                                    href="${video.url}"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="inline-flex items-center px-6 py-3 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium transition-colors duration-200"
-                                >
-                                    ${ICONS.play({ width: 18, height: 18, class: "mr-2", fill: "currentColor", stroke:"currentColor"})}
-                                    Watch Now
-                                </a>
+                                <div class="flex flex-wrap items-center gap-4">
+                                    <a
+                                        href="${video.url}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="inline-flex items-center px-4 py-2 rounded-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-sm sm:text-base transition-colors duration-200"
+                                    >
+                                        ${ICONS.play({ width: 18, height: 18, class: "mr-2", fill: "currentColor", stroke:"currentColor"})}
+                                        Check it Out!
+                                    </a>
 
-                                <div class="inline-flex items-center text-gray-300">
-                                    ${ICONS.clock({ width: 18, height: 18, class: "mr-2" })}
-                                    ${video.duration}
+                                    <div class="inline-flex items-center text-gray-300 text-sm">
+                                        ${ICONS.clock({ width: 18, height: 18, class: "mr-2" })}
+                                        ${video.duration}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <a href="${video.url}" target="_blank" rel="noopener noreferrer" class="absolute inset-0 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 cursor-pointer">
-                        <div class="w-20 h-20 rounded-full bg-indigo-600/90 flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110">
-                            ${ICONS.play({ width: 32, height: 32, class: "text-white ml-1", fill: "currentColor", stroke:"currentColor"})}
-                        </div>
-                    </a>
-                </div>`;
+                        <a href="${video.url}" target="_blank" rel="noopener noreferrer" class="absolute inset-0 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 cursor-pointer">
+                            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-indigo-600/90 flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110">
+                                ${ICONS.play({ width: 28, height: 28, class: "text-white ml-1", fill: "currentColor", stroke:"currentColor"})}
+                            </div>
+                        </a>
+                    </div>
+                </section>`;
         }
 
         function renderVideoCard(video) {
@@ -337,14 +289,14 @@
                             ${category}
                         </h2>
                         <span class="text-sm text-gray-500 dark:text-gray-400">
-                            ${videos.length} video${videos.length !== 1 ? 's' : ''}
+                            ${videos.length} movie${videos.length !== 1 ? 's' : ''}
                         </span>
                     </div>
 
                     <div class="video-section-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 ${isExpanded ? '' : 'hidden'}">
                         ${videos.length > 0 ? videos.map(video => renderVideoCard(video)).join('') : `
                         <p class="col-span-full text-gray-500 dark:text-gray-400 italic text-center py-8">
-                            No videos found in this category.
+                            No movies found in this category.
                         </p>
                         `}
                     </div>
@@ -355,16 +307,21 @@
             const container = document.getElementById('video-sections-container');
             if (!container) return;
             let html = '';
-            for (const [category, videos] of Object.entries(videosByCategory)) {
+            // Sort categories alphabetically for consistent display
+            const sortedCategories = Object.keys(videosByCategory).sort();
+
+            sortedCategories.forEach(category => {
+                const videos = videosByCategory[category];
                 const filtered = filterVideos(videos);
                 // Render section only if it has videos after filtering or if search is empty
                 if (filtered.length > 0 || !searchQuery.trim()) {
                     html += renderVideoSection(category, filtered); // Default to expanded
                 }
-            }
+            });
+
             if (searchQuery.trim() && html === '') {
                 html = `<p class="col-span-full text-gray-500 dark:text-gray-400 italic text-center py-8">
-                            No videos found matching your search query.
+                            No movies found matching your search query.
                         </p>`;
             }
             container.innerHTML = html;
@@ -391,7 +348,7 @@
                 </li>`;
 
             return `
-                <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300">
+                <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300 mt-auto">
                     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
                         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                             <div class="col-span-1 md:col-span-2">
@@ -419,7 +376,6 @@
                             <div>
                                 <h3 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">Support</h3>
                                 <ul class="space-y-3">
-
                                     ${footerLink("#", "Contact Us")}
                                     ${footerLink("#", "Privacy Policy")}
                                     ${footerLink("#", "Terms of Service")}
@@ -494,17 +450,16 @@
                             <input
                                 type="text"
                                 id="search-input"
-                                placeholder="Search videos..."
+                                placeholder="Search movies..."
                                 class="w-full pl-10 pr-4 py-2 border border-gray-200 dark:border-gray-700 rounded-full bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 transition-all"
                             />
                         </div>
-                        
                     </div>
                     <div id="featured-video-container">
                         ${renderFeaturedVideo(videoData.find(v => v.featured) || videoData[0])}
                     </div>
                     <div id="video-sections-container">
-                        </div>
+                    </div>
                 </main>
                 ${renderFooter()}
             `;
